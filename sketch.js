@@ -1,13 +1,17 @@
+//all the sound things in the green are things i tried to make the sound work but it didnt work 
+//space bar makes text vibrate 
+//mouse click shows 3D Dj logo (subtronics is a DJ)
 
 let theFont;
 let cyclops;
-let sound;
+//let mysound;
 
 
 function preload(){
   theFont = loadFont("assets/ProtestGuerrilla-Regular.ttf");
   cyclops = loadImage ("assets/cyclops.png");
-  sound = loadSound ("assets/sound");
+  //soundFormats('m4a', 'mp4', 'mp3');
+  //mySound = loadSound ("assets/sound2.m4a");
 }
 
 function setup() {
@@ -16,8 +20,8 @@ function setup() {
   textSize(72);
   textAlign(CENTER);
   imageMode(CENTER);
- 
-
+  //mysound.play();
+  //mysound.loop();
 }
 
 function draw() {
@@ -36,8 +40,9 @@ function draw() {
     push();
     noStroke();
     texture(cyclops);
-    rotateY(millis() / 1000); //ROTATE AROUND Y AXSIS 
+    rotate(millis() / 1000); //ROTATE AROUND Y AXSIS 
     box(400); //box with image 
+    orbitControl(mouseX, mouseY);
     pop();
   } else {
     if (keyIsDown(32)){
